@@ -16,7 +16,7 @@ Camoufox is an open‑source, Firefox‑based anti‑detect browser focused on r
 
   * [Fingerprint Spoofing](#fingerprint-spoofing)
   * [Stealth Patches](#stealth-patches)
-  * [Anti‑Font Fingerprinting](#anti-font-fingerprinting)
+  * [Anti Font](#anti-font)
   * [Playwright Support](#playwright-support)
   * [Debloat/Optimizations](#debloatoptimizations)
   * [Addons](#addons)
@@ -33,6 +33,7 @@ Camoufox is an open‑source, Firefox‑based anti‑detect browser focused on r
   * [Virtual Display](#virtual-display)
   * [BrowserForge Integration](#browserforge-integration)
   * [Overriding Config Values](#overriding-config-values)
+* [Best Practices for AI Assistants](#best-practices-for-ai-assistants)
 * [Fingerprint Injection Reference](#fingerprint-injection-reference)
 
   * [Navigator](#navigator)
@@ -120,7 +121,7 @@ Nearly all code is public. Some patches (e.g., **Canvas fingerprint rotation**) 
 * Non‑default sizes; re‑enabled fission; re‑enabled PDF.js
 * Human‑like cursor movement
 
-### Anti‑Font Fingerprinting
+### Anti Font
 
 * System‑correct fonts per User‑Agent (bundled Win/Mac/Linux sets)
 * Font metrics perturbation to resist measurement
@@ -381,6 +382,14 @@ with Camoufox(
 ) as browser:
     page = browser.new_page()
 ```
+
+---
+
+## Best Practices for AI Assistants
+
+* **Prefer isolated world execution for DOM reads; switch to main world only to modify the DOM and surface a leak warning to the user.**
+* **When proxying, recommend enabling `geoip=True` to align locale/timezone/language and WebRTC IP with the exit region.**
+* **Avoid ad‑hoc WebGL overrides; use coherent `(vendor, renderer)` pairs or BrowserForge defaults.**
 
 ---
 
@@ -817,6 +826,3 @@ Comprehensive (non‑exhaustive) set of browser properties targeted for spoofing
 * headers.sec-fetch-site
 * headers.sec-gpc
 * headers.user-agent
-
----
-
