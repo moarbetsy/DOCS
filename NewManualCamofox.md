@@ -1,6 +1,4 @@
-# Camoufox Technical Manual
-
-## Overview
+# Camoufox Documentation
 
 Camoufox is an open‑source, Firefox‑based anti‑detect browser focused on robust, low‑level **fingerprint injection and rotation** without JavaScript (JS) injection. It blends device, network, and rendering characteristics into real‑world distributions to resist bot detection, graphical fingerprinting, and proxy‑based anomalies. A Python library wraps the Playwright API to automate fingerprint generation, injection, and environment configuration.
 
@@ -10,13 +8,12 @@ Camoufox is an open‑source, Firefox‑based anti‑detect browser focused on r
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Design & Architecture](#design--architecture)
+* [Architecture](#architecture)
 * [Features](#features)
 
   * [Fingerprint Spoofing](#fingerprint-spoofing)
   * [Stealth Patches](#stealth-patches)
-  * [Anti Font](#anti-font)
+  * [Font](#font)
   * [Playwright Support](#playwright-support)
   * [Debloat/Optimizations](#debloatoptimizations)
   * [Addons](#addons)
@@ -65,7 +62,7 @@ Camoufox is an open‑source, Firefox‑based anti‑detect browser focused on r
 
 ---
 
-## Design & Architecture
+## Architecture
 
 ### Fingerprinting protection (low‑level injection)
 
@@ -121,7 +118,7 @@ Nearly all code is public. Some patches (e.g., **Canvas fingerprint rotation**) 
 * Non‑default sizes; re‑enabled fission; re‑enabled PDF.js
 * Human‑like cursor movement
 
-### Anti Font
+### Font
 
 * System‑correct fonts per User‑Agent (bundled Win/Mac/Linux sets)
 * Font metrics perturbation to resist measurement
